@@ -1,0 +1,49 @@
+{
+  "name": "trabalhe-conosco",
+  "version": "1.0.0",
+  "description": "O teste tem como objetivo acurar as habilidades do candidato em resolver alguns problemas relacionados à lógica de programação, regra de negócio e orientação à objetos.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/**/*"
+    ],
+    "ext": "ts",
+    "exec": "ts-node --files -r tsconfig-paths/register ./src/index.ts",
+    "ignore": [
+      "src/**/*.test.ts"
+    ]
+  },
+  "author": "Renato Ribeiro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "eslint": "^9.9.1",
+    "eslint-plugin-node": "^11.1.0",
+    "globals": "^15.9.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.4.0"
+  }
+}
