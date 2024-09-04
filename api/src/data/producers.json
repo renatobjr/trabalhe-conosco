@@ -1,0 +1,46 @@
+[
+  {
+    "CPF": "04405851476",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 40,
+    "total_area_forest": 50,
+    "cultures": ["Banana", "Milho", "Feijão", "Arroz"]
+  },
+  {
+    "CPF": "12345678900",
+    "producer_name": "Ana Silva",
+    "farm_name": "Fazenda Alegria",
+    "city": "João Pessoa",
+    "state": "PB",
+    "total_area": 200,
+    "total_area_cultivated": 80,
+    "total_area_forest": 100,
+    "cultures": ["Café", "Cana-de-Açúcar", "Soja", "Feijão", "Arroz"]
+  },
+  {
+    "CNPJ": "12345678000190",
+    "producer_name": "Jorge Almeida",
+    "farm_name": "Fazenda do Sol",
+    "city": "Natal",
+    "state": "RN",
+    "total_area": 250,
+    "total_area_cultivated": 120,
+    "total_area_forest": 80,
+    "cultures": ["Café", "Cana-de-Açúcar", "Laranja"]
+  },
+  {
+    "CNPJ": "98765432000101",
+    "producer_name": "Juliana Costa",
+    "farm_name": "Fazenda Rio Verde",
+    "city": "Mossoró",
+    "state": "RN",
+    "total_area": 300,
+    "total_area_cultivated": 150,
+    "total_area_forest": 100,
+    "cultures": ["Tomate", "Milho", "Feijão"]
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "createRuralProducerWithValidCpf": {
+    "CPF": "123.456.789-09",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 20,
+    "total_area_forest": 30,
+    "cultures": ["Banana", "Milho", "Soja"]
+  },
+  "createRuralProducerWithInvalidCpf": {
+    "CPF": "908.456.876-09",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 20,
+    "total_area_forest": 30,
+    "cultures": ["Banana", "Milho", "Soja"]
+  },
+  "createRuralProducerWithValidCnpj": {
+    "CNPJ": "12.345.678/0001-95",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 20,
+    "total_area_forest": 30,
+    "cultures": ["Banana", "Milho", "Soja"]
+  },
+  "createRuralProducerWithInvalidCnpj": {
+    "CNPJ": "12.345.675/0023-95",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 20,
+    "total_area_forest": 30,
+    "cultures": ["Banana", "Milho", "Soja"]
+  },
+  "createRuralProducerWithInvalidTotalArea": {
+    "CPF": "123.456.789-09",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 80,
+    "total_area_forest": 50,
+    "cultures": ["Banana", "Milho", "Soja"]
+  },
+  "updateRuralProducerWithValidCpf": {
+    "CPF": "123.456.789-09",
+    "producer_name": "Renato Ribeiro",
+    "farm_name": "Fazenda Esperança",
+    "city": "Campina Grande",
+    "state": "PB",
+    "total_area": 100,
+    "total_area_cultivated": 20,
+    "total_area_forest": 30,
+    "cultures": ["Banana", "Milho", "Soja"]
+  }
+}

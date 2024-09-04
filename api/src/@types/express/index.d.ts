@@ -1,6 +1,6 @@
 declare namespace Express {
   type ErrorInfo = {
-    code?: number;
+    code?: string;
     details: string;
   };
 

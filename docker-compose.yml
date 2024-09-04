@@ -1,0 +1,69 @@
+version: "3.8"
+
+name: "api-rural-producer"
+
+networks:
+  api-rural-producer:
+    driver: bridge
+
+services:
+  # Api
+  rural-producer-api:
+    container_name: rural-producer-api
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api:/var/www
+    env_file:
+      - envs/api.env
+    depends_on:
+      - rural-producer-db
+      - rural-producer-db-test
+    networks:
+      - api-rural-producer
+
+  # Database
+  rural-producer-db:
+    container_name: rural-producer-db
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=r4oelJBJP9DO0FS0xm
+      - POSTGRES_DB=producers
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "PGPASSWORD=r4oelJBJP9DO0FS0xm pg_isready -d producers -U postgres",
+        ]
+      interval: 1m
+      timeout: 1s
+      retries: 3
+    networks:
+      - api-rural-producer
+
+  rural-producer-db-test:
+    container_name: rural-producer-db-test
+    image: postgres:15-alpine
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=r4oelJBJP9DO0FS0xm
+      - POSTGRES_DB=test_producers
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "PGPASSWORD=r4oelJBJP9DO0FS0xm pg_isready -d test_producers -U test_postgres",
+        ]
+      interval: 1m
+      timeout: 1s
+      retries: 3
+    networks:
+      - api-rural-producer
