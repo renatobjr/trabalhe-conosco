@@ -23,7 +23,6 @@ api
   .use(dataGraphRoutes);
 
 connection?.authenticate().then(async () => {
-  console.log(process.env);
   if (process.env.NODE_ENV != "test") {
     connection.sync({ force: true }).then(async () => await seed());
   } else {

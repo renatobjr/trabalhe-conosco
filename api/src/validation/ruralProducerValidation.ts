@@ -3,7 +3,6 @@ import RuralProducerHelper from "@/helpers/ruralProducerHelper";
 const RuralProducerValidation = {
   validateCpf: (cpf: string) => {
     const formatedCpf: string = RuralProducerHelper.clearCpfOrCnpj(cpf);
-    console.log(formatedCpf);
     if (!RuralProducerHelper.verifyCpf(formatedCpf)) {
       throw new Error("Invalid CPF");
     }
