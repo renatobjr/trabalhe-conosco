@@ -36,8 +36,15 @@ const create: Handler = async (req, res) => {
 const get: Handler = async (req, res) => {
   try {
     const id = req.params.id;
-
     const response = await ruralProducerRepository.get(id);
+
+    if (response === null) {
+      res.error(HttpStatusCode.NOT_FOUND, {
+        code: HttpStatusMessage.NOT_FOUND,
+        details: HttpStatusMessage.NOT_FOUND,
+      });
+      return;
+    }
 
     res.success(HttpStatusCode.OK, response);
   } catch (error: any) {
@@ -67,6 +74,14 @@ const update: Handler = async (req, res) => {
 
     const response = await ruralProducerRepository.update(id, payload);
 
+    if (response[0] === 0) {
+      res.error(HttpStatusCode.NOT_FOUND, {
+        code: HttpStatusMessage.NOT_FOUND,
+        details: HttpStatusMessage.NOT_FOUND,
+      });
+      return;
+    }
+
     res.success(HttpStatusCode.OK, response);
   } catch (error: any) {
     res.error(HttpStatusCode.BAD_REQUEST, {
@@ -81,6 +96,14 @@ const remove: Handler = async (req, res) => {
     const id = req.params.id;
 
     const response = await ruralProducerRepository.remove(id);
+
+    if (response === 0) {
+      res.error(HttpStatusCode.NOT_FOUND, {
+        code: HttpStatusMessage.NOT_FOUND,
+        details: HttpStatusMessage.NOT_FOUND,
+      });
+      return;
+    }
 
     res.success(HttpStatusCode.OK, response);
   } catch (error: any) {

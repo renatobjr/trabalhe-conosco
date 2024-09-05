@@ -29,7 +29,7 @@ const configEnv: IConfigEnv = {
     database: process.env.TEST_DB_NAME as string,
     username: process.env.POSTGRES_DB_USER as string,
     password: process.env.POSTGRES_DB_PASSWORD as string,
-    host: process.env.POSTGRES_DB_HOST as string,
+    host: process.env.TEST_DB_HOST as string,
     port: process.env.TEST_DB_PORT as string,
     dialect: "postgres",
   },

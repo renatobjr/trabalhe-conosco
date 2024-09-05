@@ -47,7 +47,7 @@ const RuralProducer = connection.define(
       allowNull: false,
     },
     cultures: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.JSONB,
       allowNull: false,
     },
   },

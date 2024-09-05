@@ -9,7 +9,7 @@ const connection = new Sequelize({
   username: dbConfig.username,
   password: dbConfig.password,
   host: dbConfig.host,
-  port: parseInt(dbConfig.port, 10),
+  port: parseInt(dbConfig.port),
   dialect: "postgres",
 });
 

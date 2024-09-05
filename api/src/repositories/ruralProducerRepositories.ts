@@ -1,18 +1,6 @@
 import RuralProducer from "@/schemas/ruralProducer";
 import { Model, Optional } from "sequelize";
 
-export interface RuralProducerRepository {
-  create: (
-    payload: Optional<RuralProducerPayload, keyof RuralProducerPayload>
-  ) => Promise<Model>;
-  get: (id: string) => Promise<Model | null>;
-  update: (
-    id: string,
-    payload: Optional<RuralProducerPayload, keyof RuralProducerPayload>
-  ) => Promise<boolean>;
-  delete: (id: string) => Promise<boolean>;
-}
-
 export interface RuralProducerPayload {
   CPF: string;
   CNPJ: string;
@@ -31,37 +19,68 @@ const ruralProducerRepository = {
     payload: Optional<RuralProducerPayload, keyof RuralProducerPayload>
   ): Promise<Model> => {
     try {
-      const response = await RuralProducer.create(payload);
-      return response;
+      const result = await RuralProducer.create(payload);
+      return result;
     } catch (error: any) {
       return error;
     }
   },
+
   get: async (id: string): Promise<Model | null> => {
     return await RuralProducer.findByPk(id);
   },
+
   update: async (
     id: string,
     payload: Optional<RuralProducerPayload, keyof RuralProducerPayload>
-  ): Promise<boolean> => {
+  ): Promise<[number]> => {
     try {
-      await RuralProducer.update(payload, {
+      const result = await RuralProducer.update(payload, {
         where: { id: id },
       });
-      return true;
+
+      return result;
     } catch (error: any) {
       return error;
     }
   },
-  remove: async (id: string): Promise<boolean> => {
+
+  remove: async (id: string): Promise<number> => {
     try {
-      await RuralProducer.destroy({
+      const result = await RuralProducer.destroy({
         where: { id: id },
       });
-      return true;
+      return result;
     } catch (error: any) {
       return error;
     }
+  },
+
+  countFarms: async (): Promise<number> => {
+    return await RuralProducer.count();
+  },
+
+  sumTotalArea: async (): Promise<number> => {
+    return await RuralProducer.sum("total_area");
+  },
+
+  countFarmsByState: async () => {
+    return await RuralProducer.count({
+      attributes: ["state"],
+      group: ["state"],
+    });
+  },
+
+  countFarmsByCulture: async () => {
+    return await RuralProducer.findAll({
+      attributes: ["cultures"],
+    });
+  },
+
+  countFarmsByAreas: async () => {
+    return await RuralProducer.findAll({
+      attributes: ["total_area", "total_area_cultivated", "total_area_forest"],
+    });
   },
 };
 
